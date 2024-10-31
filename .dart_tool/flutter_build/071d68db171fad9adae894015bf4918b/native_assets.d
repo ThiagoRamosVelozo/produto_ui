@@ -1,0 +1,1 @@
+ /home/trv/Projetos/produto_ui/.dart_tool/flutter_build/071d68db171fad9adae894015bf4918b/native_assets.yaml: 
