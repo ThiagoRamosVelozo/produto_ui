@@ -30,7 +30,7 @@ class ProdutoRepository {
 
   Future<Produto> create(Produto produto) async {
     final response = await dio.post(url, data: produto.toMap());
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return Produto.fromMap(response.data);
     }
     throw Exception('Não foi possível adicionar o produto');

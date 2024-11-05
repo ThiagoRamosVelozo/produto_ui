@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'model.dart';
-import 'repository.dart';
 import 'service.dart';
 
 abstract class ProdutoState {}
@@ -123,13 +122,13 @@ class DeleteProdutoBloc extends Bloc<ProdutoEvent, ProdutoDeleteState> {
 }
 
 class UpdateProdutoBloc extends Bloc<ProdutoEvent, ProdutoUpdateState> {
-  final ProdutoRepository _produtoRepository;
-  UpdateProdutoBloc(this._produtoRepository) : super(ProdutoUpdateInitial()) {
+  final ProdutoService _service;
+  UpdateProdutoBloc(this._service) : super(ProdutoUpdateInitial()) {
     on<UpdateProduto>(
       (event, emit) async {
         emit(ProdutoUpdating());
         try {
-          final produto = await _produtoRepository.update(event.produto);
+          final produto = await _service.update(event.produto);
           emit(ProdutoUpdated(produto));
         } catch (e) {
           emit(ProdutoUpdateError(e.toString()));
