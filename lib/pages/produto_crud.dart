@@ -305,6 +305,7 @@ class _ProdutoCrud extends State<ProdutoCrud> {
                 text: 'Voltar',
                 gradient: gradient4,
                 onPressed: () async {
+                  _produtoSelecionado = null;
                   await _pageController.animateToPage(
                     0,
                     duration: const Duration(milliseconds: 400),
