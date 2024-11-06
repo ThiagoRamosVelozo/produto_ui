@@ -86,8 +86,8 @@ class _ProdutoCrud extends State<ProdutoCrud> {
               ),
               BlocListener<UpdateProdutoBloc, ProdutoUpdateState>(
                 listener: (context, state) async {
-                  _produtoSelecionado = null;
                   if (state is ProdutoUpdated) {
+                    _produtoSelecionado = null;
                     await _pageController.animateToPage(
                       0,
                       duration: const Duration(milliseconds: 400),
